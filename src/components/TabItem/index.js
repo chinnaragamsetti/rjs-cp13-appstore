@@ -3,11 +3,17 @@
 import './index.css'
 
 const TabItem = props => {
-  const {eachdetails} = props
+  const {eachdetails, onChangeTab} = props
   const {tabId, displayText} = eachdetails
+
+  const onChangetab = () => {
+    onChangeTab(tabId)
+  }
   return (
-    <li>
-      <p className="tab">{displayText}</p>
+    <li className="eachtablist">
+      <button type="button" className="button" onClick={onChangetab}>
+        <p className="tab">{displayText}</p>
+      </button>
     </li>
   )
 }
