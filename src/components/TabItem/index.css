@@ -4,3 +4,21 @@
   font-size: 15px;
   color: #7b8794;
 }
+.seletedtab {
+  color: blue;
+}
+.eachtablist {
+  border-bottom: 1px solid #7b8794;
+  width: 25%;
+  margin-right: 0px;
+  padding-right: 2px;
+  padding-left: 2px;
+  text-align: center;
+}
+.selected {
+  border-bottom: blue;
+}
+.button {
+  border: 0px;
+  background-color: transparent;
+}
