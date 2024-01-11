@@ -1,6 +1,6 @@
 import {Component} from 'react'
-import AppItem from './components/AppItem'
-import TabItem from './components/TabItem'
+import AppItem from '../AppItem'
+import TabItem from '../TabItem'
 
 import './index.css'
 
@@ -295,22 +295,68 @@ const appsList = [
 
 // Write your code here
 class AppStore extends Component {
+  state = {
+    activatetabId: tabsList[0].tabId,
+    searchInput: '',
+    finalList: appsList,
+  }
+
+  onChangeTab = tabId => {
+    this.setState({activatetabId: tabId})
+  }
+
+  getfilteredList = () => {
+    const {activatetabId} = this.state
+    const filteredList = appsList.filter(
+      each => each.category === activatetabId,
+    )
+    this.setState({finalList: filteredList})
+  }
+
+  onSearch = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
+  searchedList = () => {
+    const {searchInput} = this.state
+    const filteredList = appsList.map(each =>
+      each.appName.includes(searchInput),
+    )
+    this.setState({finalList: filteredList})
+  }
+
   render() {
+    this.getfilteredList()
+    this.searchedList()
+    const {finalList} = this.state
     return (
       <div className="maincontainer">
         <h1 className="mainheading">App Store</h1>
         <div className="inputcontainer">
-          <input type="search" className="input" />
-          <img src="" className="searchicon" />
+          <input
+            type="search"
+            className="input"
+            onChange={this.onSearch}
+            placeholder="Search"
+          />
+          <img
+            alt="search icon"
+            src="https://assets.ccbp.in/frontend/react-js/app-store/app-store-search-img.png"
+            className="searchicon"
+          />
         </div>
 
         <ul className="tablist">
           {tabsList.map(each => (
-            <TabItem eachdetails={each} key={each.tabId} />
+            <TabItem
+              eachdetails={each}
+              onChangeTab={this.onChangeTab}
+              key={each.tabId}
+            />
           ))}
         </ul>
         <ul className="applist">
-          {appsList.map(each => (
+          {finalList.map(each => (
             <AppItem eachdetails={each} key={each.appId} />
           ))}
         </ul>
@@ -320,10 +366,3 @@ class AppStore extends Component {
 }
 
 export default AppStore
-
-/* <ul className='tablist'>
-                 {displayText.map(each=><TabItem eachdetails={each}/>)
-
-                    } 
-                </ul> 
- */
