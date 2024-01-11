@@ -1,16 +1,17 @@
 /* Write your CSS here */
 
 .maincontainer {
-  background-image: linear-gradient(to down, #fff1eb, #ace0f9);
+  background-image: linear-gradient(to bottom, #fff1eb, #ace0f9);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .mainheading {
-  font-size: 40px;
+  font-size: 20px;
   color: #1e293b;
+  font-weight: bold;
 }
 .inputcontainer {
   border-radius: 4px;
@@ -18,10 +19,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
+  border: 1px solid #7b8794;
 }
 .input {
-  border: 0px;
+  border: 0px transparent;
+  font-weight: bold;
+  color: #1e293b;
+  background-color: transparent;
 }
 .searchicon {
   width: 20px;
@@ -29,11 +34,15 @@
 }
 .tablist {
   display: flex;
+  list-style-type: none;
   justify-content: center;
   align-items: center;
+  width: 30%;
   border-bottom: 1px #7b8794;
 }
 .applist {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
