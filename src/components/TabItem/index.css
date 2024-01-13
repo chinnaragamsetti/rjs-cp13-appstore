@@ -1,12 +1,5 @@
 /* Write your CSS here */
 
-.tab {
-  font-size: 15px;
-  color: #7b8794;
-}
-.seletedtab {
-  color: blue;
-}
 .eachtablist {
   border-bottom: 1px solid #7b8794;
   width: 25%;
@@ -15,10 +8,20 @@
   padding-left: 2px;
   text-align: center;
 }
-.selected {
-  border-bottom: blue;
-}
+
 .button {
   border: 0px;
   background-color: transparent;
+}
+
+.tab {
+  font-size: 15px;
+  color: #7b8794;
+}
+
+.selectedtablist {
+  border-bottom: 1px solid #2563eb;
+}
+.seletedtab {
+  color: blue;
 }

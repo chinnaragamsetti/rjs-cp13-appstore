@@ -306,29 +306,29 @@ class AppStore extends Component {
   }
 
   getfilteredList = () => {
-    const {activatetabId} = this.state
-    const filteredList = appsList.filter(
+    const {activatetabId, finalList} = this.state
+    const filteredtabList = finalList.filter(
       each => each.category === activatetabId,
     )
-    this.setState({finalList: filteredList})
+    return filteredtabList
   }
 
   onSearch = event => {
     this.setState({searchInput: event.target.value})
   }
 
-  searchedList = () => {
+  searchedList = getfilteredtabList => {
     const {searchInput} = this.state
-    const filteredList = appsList.map(each =>
+    const filteredsearchedList = getfilteredtabList.map(each =>
       each.appName.includes(searchInput),
     )
-    this.setState({finalList: filteredList})
+    return filteredsearchedList
   }
 
   render() {
-    this.getfilteredList()
-    this.searchedList()
-    const {finalList} = this.state
+    const getfilteredtabList = this.getfilteredtabList()
+    const searchedList = this.searchedList(getfilteredtabList)
+    const {activatetabId} = this.state
     return (
       <div className="maincontainer">
         <h1 className="mainheading">App Store</h1>
@@ -350,13 +350,14 @@ class AppStore extends Component {
           {tabsList.map(each => (
             <TabItem
               eachdetails={each}
+              isActive={each.tabId === activatetabId}
               onChangeTab={this.onChangeTab}
               key={each.tabId}
             />
           ))}
         </ul>
         <ul className="applist">
-          {finalList.map(each => (
+          {searchedList.map(each => (
             <AppItem eachdetails={each} key={each.appId} />
           ))}
         </ul>
