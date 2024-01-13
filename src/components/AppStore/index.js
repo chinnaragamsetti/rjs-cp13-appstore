@@ -306,11 +306,19 @@ class AppStore extends Component {
   }
 
   getfilteredList = () => {
+<<<<<<< HEAD
     const {activatetabId, finalList} = this.state
     const filteredtabList = finalList.filter(
       each => each.category === activatetabId,
     )
     return filteredtabList
+=======
+    const {activatetabId} = this.state
+    const filteredList = appsList.filter(
+      each => each.category === activatetabId,
+    )
+    this.setState({finalList: filteredList})
+>>>>>>> 4b7ebc31b077db3070aac8461c296df986292af3
   }
 
   onSearch = event => {
