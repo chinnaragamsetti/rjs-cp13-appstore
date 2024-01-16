@@ -311,8 +311,7 @@ class AppStore extends Component {
       each => each.category === activatetabId,
     )
     return filteredtabList
-
-  
+  }
 
   onSearch = event => {
     this.setState({searchInput: event.target.value})
@@ -327,7 +326,7 @@ class AppStore extends Component {
   }
 
   render() {
-    const getfilteredtabList = this.getfilteredtabList()
+    const getfilteredtabList = this.getfilteredList()
     const searchedList = this.searchedList(getfilteredtabList)
     const {activatetabId} = this.state
     return (
