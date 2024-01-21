@@ -18,7 +18,6 @@
   font-size: 15px;
   color: #7b8794;
 }
-<<<<<<< HEAD
 
 .selectedtablist {
   border-bottom: 1px solid #2563eb;
@@ -26,23 +25,3 @@
 .seletedtab {
   color: blue;
 }
-=======
-.seletedtab {
-  color: blue;
-}
-.eachtablist {
-  border-bottom: 1px solid #7b8794;
-  width: 25%;
-  margin-right: 0px;
-  padding-right: 2px;
-  padding-left: 2px;
-  text-align: center;
-}
-.selected {
-  border-bottom: blue;
-}
-.button {
-  border: 0px;
-  background-color: transparent;
-}
->>>>>>> 4b7ebc31b077db3070aac8461c296df986292af3
